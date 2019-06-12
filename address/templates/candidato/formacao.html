@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidatos: Dados formação</title>
+</head>
+<body>
+    <h1 align="center"> Página dos candidatos </h1>
+    <fieldset>
+        <legend align="center"> Dados pessoais</legend>
+    <div>
+        <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+    </fieldset>
+</body>
+</html>

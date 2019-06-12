@@ -3,11 +3,11 @@ from django.db import models
 
 class dadoPessoal(models.Model):
     id = primary_key = True
+    meu_cpf = models.CharField(max_length=11)
     nome = models.CharField(max_length=50)
     sobrenome = models.CharField(max_length=50)
     nascimento = models.DateField()
     nacionalidade = models.CharField(max_length=50)
-    CPF = models.CharField(max_length=11)
     estadocivil = models.CharField(max_length=20)
     naturalidade = models.CharField(max_length=30)
     uf = models.CharField(max_length=2)
@@ -39,7 +39,7 @@ class formacao(models.Model):
 class contato(models.Model):
     id = primary_key = True
     id_formacao = models.ForeignKey(dadoPessoal, on_delete=models.PROTECT)
-    email = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
     celular1 = models.CharField(max_length=11)
     telefone = models.CharField(max_length=10)
     celular2 = models.CharField(max_length=11)
