@@ -1,0 +1,14 @@
+{% extends 'candidato/apply.html' %}
+
+{% block endereco %}
+    <fieldset>
+        <legend align="center"> Endereço</legend>
+    <div align="center">
+        <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+    </fieldset>
+{% endblock %}

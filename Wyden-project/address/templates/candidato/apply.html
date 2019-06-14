@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Candidatos: Dados Pessoais</title>
+</head>
+<body>
+    <div align="center">
+       <h1 align="center">
+        <a href="/"> Início </a> &nbsp;&nbsp;
+        <a href="http://127.0.0.1:8000/candidatos"> Candidatos </a> &nbsp;&nbsp;
+        <a href="http://127.0.0.1:8000/empresas"> Empresas </a> &nbsp;&nbsp;
+        <a href="http://127.0.0.1:8000/sobre"> Sobre </a>
+       </h1>
+    </div>
+    <h1 align="center"> Página do candidato </h1>
+    <img src="https://2elwng.by.files.1drv.com/y4mACTW1p3Hjg2M-VzuPNecopk1fpAZSiZxShfxkrsORFZsPxA1N0Jdu6zk29CgaQxpduDPJWaFqDHHj2-qviiXmGVvTlidf8X3WBwq-0hUWBRjxE65YL5QZsSs0QHf9LVy42cnrRQAbPnwTL8weV2IHBSw8hqEPlA-Acba1Hng0o0Kfz8DCHkiQ1g65mYc_OVW03Eqk5aV77lbWP9X3yB8qg?width=1440&height=598&cropmode=none"
+         width="1440" height="598" />
+    <h2 align="center">Cadastre seu currículo e aumente suas chances de ser contratado </h2>
+    <fieldset>
+        <legend align="center"> Dados pessoais</legend>
+    <div align="center">
+        <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+        </fieldset>
+
+    {% block endereco %}
+
+    {% endblock %}
+
+    {% block formacao %}
+
+    {% endblock %}
+
+    {% block contato %}
+
+    {% endblock %}
+
+    {% block habilidade %}
+
+    {% endblock %}
+
+</body>
+</html>
