@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Candidatos: Dados endereco</title>
-</head>
-<body>
-    <h1 align="center"> Página dos candidatos </h1>
+{% extends 'candidato/apply.html' %}
+
+{% block endereco %}
     <fieldset>
-        <legend align="center"> Dados pessoais</legend>
-    <div>
+        <legend align="center"> Endereço</legend>
+    <div align="center">
         <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
@@ -16,5 +11,4 @@
         </form>
     </div>
     </fieldset>
-</body>
-</html>
+{% endblock %}

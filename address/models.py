@@ -43,3 +43,15 @@ class contato(models.Model):
     celular1 = models.CharField(max_length=11)
     telefone = models.CharField(max_length=10)
     celular2 = models.CharField(max_length=11)
+
+
+class habilidade(models.Model):
+    id = primary_key = True
+    id_habilidade = models.ForeignKey(dadoPessoal, on_delete=models.PROTECT)
+    habilidade1 = models.CharField(max_length=50)
+    habilidade2 = models.CharField(max_length=50)
+    habilidade3 = models.CharField(max_length=50)
+    habilidade4 = models.CharField(max_length=50, blank=True, null=True)
+    habilidade5 = models.CharField(max_length=50, blank=True, null=True)
+    habilidade6 = models.CharField(max_length=50, blank=True, null=True)
+

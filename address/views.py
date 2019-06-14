@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import dadoPessoalForm, enderecoUsuarioForm, formacaoForm, contatoForm
-from .models import dadoPessoal, enderecoUsuario, formacao, contato
+from .forms import dadoPessoalForm, enderecoUsuarioForm, formacaoForm, contatoForm, habilidadeForm
+from .models import dadoPessoal, enderecoUsuario, formacao, contato, habilidade
 
 
 def homepage(request):
@@ -20,39 +20,51 @@ def apply(request):
 
 
 def applyendereco(request):
-    dataend = {}
-    endereco = enderecoUsuarioForm(request.POST or None)
+    data = {}
+    form = enderecoUsuarioForm(request.POST or None)
 
     #Validacao
-    if endereco.is_valid():
-        endereco.save()
+    if form.is_valid():
+        form.save()
         return redirect('/')
-    dataend['endereco'] = endereco
-    return render(request, 'candidato/applyendereco.html', dataend)
+    data['endereco'] = form
+    return render(request, 'candidato/applyendereco.html', data)
 
 
 def applyformacao(request):
-    dataformacao = {}
-    formacao = formacaoForm(request.POST or None)
+    data = {}
+    form = formacaoForm(request.POST or None)
 
     #validacao
-    if formacao.is_valid():
-        formacao.save()
+    if form.is_valid():
+        form.save()
         return redirect('/')
-    dataformacao['formacao'] = formacao
+    data['formacao'] = formacao
     return render(request, 'candidato/formacao.html')
 
 
 def applycontato(request):
-    datacontato = {}
-    contato = contatoForm(request.POST or None)
+    data = {}
+    form = contatoForm(request.POST or None)
 
     #Validacao
-    if contato.is_valid():
-        contato.save()
+    if form.is_valid():
+        form.save()
         return redirect('/')
-    datacontato['contato'] = contato
-    return render(request, 'cadidato/contato')
+    data['form'] = form
+    return render(request, 'candidato/contato.html')
+
+
+def applyhabilidade(request):
+    data = {}
+    form = habilidadeForm(request.POST or None)
+
+    #Validacao
+    if form.is_valid():
+        form.save()
+        return redirect('/')
+    data['contato'] = form
+    return render(request, 'cadidato/habilidade.html')
 
 
 
@@ -61,6 +73,7 @@ def applycontato(request):
 #     data['dadoPessoal'] = dadoPessoal.objects.all()
 #     return render(request, 'address/list.html', data)
 #     print('foi')
+
 
 
 def companies(request):

@@ -27,3 +27,9 @@ class contatoForm(forms.ModelForm):
         fields = ['id', 'id_formacao', 'email', 'celular1', 'telefone', 'celular2']
 
 
+class habilidadeForm(forms.ModelForm):
+    class Meta:
+        model = habilidade
+        fields = ['id', 'id_habilidade', 'habilidade1', 'habilidade2', 'habilidade3', 'habilidade4', 'habilidade5',
+                  'habilidade6']
+
