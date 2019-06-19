@@ -14,57 +14,57 @@ def apply(request):
     # validacao
     if form.is_valid():
         form.save()
-        return redirect('/')
+        return redirect('/candidato/applyendereco.html')
     data['form'] = form
     return render(request, 'candidato/apply.html', data)
 
 
 def applyendereco(request):
     data = {}
-    form = enderecoUsuarioForm(request.POST or None)
+    formEndereco = enderecoUsuarioForm(request.POST or None)
 
     #Validacao
-    if form.is_valid():
-        form.save()
-        return redirect('/')
-    data['endereco'] = form
+    if formEndereco.is_valid():
+        formEndereco.save()
+        return redirect('/candidato/formacao.html')
+    data['formEndereco'] = formEndereco
     return render(request, 'candidato/applyendereco.html', data)
 
 
 def applyformacao(request):
     data = {}
-    form = formacaoForm(request.POST or None)
+    formFormacao = formacaoForm(request.POST or None)
 
     #validacao
-    if form.is_valid():
-        form.save()
-        return redirect('/')
-    data['formacao'] = formacao
-    return render(request, 'candidato/formacao.html')
+    if formFormacao.is_valid():
+        formFormacao.save()
+        return redirect('/candidato/contato.html')
+    data['formFormacao'] = formFormacao
+    return render(request, 'candidato/formacao.html', data)
 
 
 def applycontato(request):
     data = {}
-    form = contatoForm(request.POST or None)
+    formContato = contatoForm(request.POST or None)
 
     #Validacao
-    if form.is_valid():
-        form.save()
-        return redirect('/')
-    data['form'] = form
-    return render(request, 'candidato/contato.html')
+    if formContato.is_valid():
+        formContato.save()
+        return redirect('/cadidato/habilidade.html')
+    data['formContato'] = formContato
+    return render(request, 'candidato/contato.html', data)
 
 
 def applyhabilidade(request):
     data = {}
-    form = habilidadeForm(request.POST or None)
+    formHabilidade = habilidadeForm(request.POST or None)
 
     #Validacao
-    if form.is_valid():
-        form.save()
-        return redirect('/')
-    data['contato'] = form
-    return render(request, 'cadidato/habilidade.html')
+    if formHabilidade.is_valid():
+        formHabilidade.save()
+        return redirect('http://127.0.0.1:8000/home')
+    data['formHabilidade'] = formHabilidade
+    return render(request, 'candidato/habilidade.html', data)
 
 
 

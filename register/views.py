@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from crypt import crypt
+import bcrypt
+
 from .models import User
 
 
@@ -15,7 +16,7 @@ def register(request):
             messages.error(request, error, extra_tags=tag)
         return redirect('/')
 
-    hashed_password = crypt.hashpw(request.POST['password'].encode(), crypt.gensalt())
+    hashed_password = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
     user = User.objects.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'],
                                password=hashed_password, email=request.POST['email'])
     user.save()
@@ -26,7 +27,7 @@ def register(request):
 def login(request):
     if User.objects.filter(email=request.POST['login_email']).exists():
         user = User.objects.filter(email=request.POST['login_email'])[0]
-        if crypt.checkpw(request.POST['login_password'].encode(), user.password.encode()):
+        if bcrypt.checkpw(request.POST['login_password'].encode(), user.password.encode()):
             request.session['id'] = user.id
             return redirect('/success')
     return redirect('/')
