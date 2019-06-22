@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'contato', views.applycontato),
     url(r'formacao', views.applyformacao),
     url(r'habilidade', views.applyhabilidade),
-    #url(r'^listagem$', views.listagem),
+    url(r'experiencia', views.applycargo),
     url(r'empresas', views.companies),
     url(r'sobre', views.about)
 ]

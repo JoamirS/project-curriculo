@@ -55,3 +55,13 @@ class habilidade(models.Model):
     habilidade5 = models.CharField(max_length=50, blank=True, null=True)
     habilidade6 = models.CharField(max_length=50, blank=True, null=True)
 
+
+class experiencia(models.Model):
+    id = primary_key = True
+    id_experiencia = models.ForeignKey(dadoPessoal, on_delete=models.PROTECT)
+    Cargo1 = models.CharField(max_length=50)
+    TempoCargoEmAnosCargo1 = models.IntegerField()
+    Cargo2 = models.CharField(max_length=50, blank=True, null=True)
+    TempoCargoEmAnosCargo2 = models.IntegerField(blank=True, null=True)
+
+

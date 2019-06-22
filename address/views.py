@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import dadoPessoalForm, enderecoUsuarioForm, formacaoForm, contatoForm, habilidadeForm
-from .models import dadoPessoal, enderecoUsuario, formacao, contato, habilidade
+from .forms import dadoPessoalForm, enderecoUsuarioForm, formacaoForm, contatoForm, habilidadeForm, experienciaForm
+from .models import dadoPessoal, enderecoUsuario, formacao, contato, habilidade, experiencia
 
 
 def homepage(request):
@@ -50,7 +50,7 @@ def applycontato(request):
     #Validacao
     if formContato.is_valid():
         formContato.save()
-        return redirect('/cadidato/habilidade.html')
+        return redirect('/candidato/habilidade.html')
     data['formContato'] = formContato
     return render(request, 'candidato/contato.html', data)
 
@@ -62,17 +62,21 @@ def applyhabilidade(request):
     #Validacao
     if formHabilidade.is_valid():
         formHabilidade.save()
-        return redirect('http://127.0.0.1:8000/home')
+        return redirect('/candidato/experiencia')
     data['formHabilidade'] = formHabilidade
     return render(request, 'candidato/habilidade.html', data)
 
 
+def applycargo(request):
+     data = {}
+     formExperiencia = experienciaForm(request.POST or None)
 
-# def listagem(request):
-#     data = {}
-#     data['dadoPessoal'] = dadoPessoal.objects.all()
-#     return render(request, 'address/list.html', data)
-#     print('foi')
+     #Validação
+     if formExperiencia.is_valid():
+         formExperiencia.save()
+         return redirect('http://127.0.0.1:8000/home')
+     data['formExperiencia'] = formExperiencia
+     return render(request, 'candidato/experiencia.html', data)
 
 
 

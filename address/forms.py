@@ -33,3 +33,8 @@ class habilidadeForm(forms.ModelForm):
         fields = ['id', 'id_habilidade', 'habilidade1', 'habilidade2', 'habilidade3', 'habilidade4', 'habilidade5',
                   'habilidade6']
 
+
+class experienciaForm(forms.ModelForm):
+    class Meta:
+        model = experiencia
+        fields = ['id', 'id_experiencia', 'Cargo1', 'TempoCargoEmAnosCargo1', 'Cargo2', 'TempoCargoEmAnosCargo2']

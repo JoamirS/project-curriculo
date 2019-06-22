@@ -6,7 +6,7 @@ from .models import User
 
 
 def index(request):
-    return render(request, 'register/index.html')
+    return render(request, 'register/cadastro.html')
 
 
 def register(request):
@@ -27,10 +27,8 @@ def register(request):
 def login(request):
     if User.objects.filter(email=request.POST['login_email']).exists():
         user = User.objects.filter(email=request.POST['login_email'])[0]
-        if bcrypt.checkpw(request.POST['login_password'].encode(), user.password.encode()):
-            request.session['id'] = user.id
-            return redirect('/success')
-    return redirect('/')
+
+    return redirect('/home')
 
 
 def success(request):
